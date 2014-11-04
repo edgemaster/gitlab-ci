@@ -4,6 +4,11 @@ defaults: &defaults
     app_id: ''
     app_secret: ''
 
+  users:
+    admin_from_gitlab: false
+    admin_usernames:
+      - 'tw1509'
+
   ## Gitlab CI settings  
   gitlab_ci:
     ## Web server settings

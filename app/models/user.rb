@@ -51,4 +51,9 @@ class User
       !!Network.new.project_hooks(self.url, opts, project_gitlab_id)
     end
   end
+
+  def is_admin
+    return (Settings.users.admin_usernames.include? attributes['username']) ||
+      (Settings.users.admin_from_gitlab && attributes['is_admin'])
+  end
 end
