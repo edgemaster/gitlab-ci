@@ -36,6 +36,8 @@ defaults: &defaults
       admin_from_gitlab: false
       admin_usernames:
         - 'tw1509'
+      allow_login_only_from_groups:
+        - 2530
 
   ## Backup settings
   backup:
