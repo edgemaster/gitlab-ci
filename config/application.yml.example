@@ -3,6 +3,11 @@ defaults: &defaults
     # Replace with your gitlab server url
     - 'https://gitlab.example.com/'
 
+  users:
+    admin_from_gitlab: false
+    admin_usernames:
+      - 'tw1509'
+
   ## Gitlab CI settings  
   gitlab_ci:
     ## Web server settings
