@@ -32,6 +32,11 @@ defaults: &defaults
     # The location where build traces are stored (default: builds/). Relative paths are relative to Rails.root
     # builds_path: builds/
 
+    users:
+      admin_from_gitlab: false
+      admin_usernames:
+        - 'tw1509'
+
   ## Backup settings
   backup:
     path: "tmp/backups"   # Relative paths are relative to Rails.root (default: tmp/backups/)

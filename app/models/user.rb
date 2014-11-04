@@ -85,6 +85,11 @@ class User
     end
   end
 
+  def is_admin
+    return (Settings.gitlab_ci.users.admin_usernames.include? attributes['username']) ||
+      (Settings.gitlab_ci.users.admin_from_gitlab && attributes['is_admin'])
+  end
+
   private
 
   def project_info(project_gitlab_id)
