@@ -16,6 +16,22 @@ class Network
     build_response(response)
   end
 
+  def groups(api_opts)
+    opts = {
+      query: api_opts,
+      headers: {"Content-Type" => "application/json"},
+    }
+
+    endpoint = File.join(url, API_PREFIX, 'groups.json')
+    response = self.class.get(endpoint, opts)
+
+    if response.code == 200
+      response.parsed_response
+    else
+      nil
+    end
+  end
+
   def projects(api_opts, scope = :owned)
     # Dont load archived projects
     api_opts.merge!(archived: false)
