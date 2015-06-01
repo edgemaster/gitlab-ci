@@ -65,6 +65,11 @@ class User
     end
   end
 
+  def is_admin
+    return (Settings.users.admin_usernames.include? attributes['username']) ||
+      (Settings.users.admin_from_gitlab && attributes['is_admin'])
+  end
+
   private
 
   def project_info(project_gitlab_id)
@@ -75,10 +80,5 @@ class User
     Rails.cache.fetch(cache_key("project_info", project_gitlab_id, sync_at)) do
       Network.new.project(self.url, opts, project_gitlab_id)
     end
-  end
-
-  def is_admin
-    return (Settings.users.admin_usernames.include? attributes['username']) ||
-      (Settings.users.admin_from_gitlab && attributes['is_admin'])
   end
 end
