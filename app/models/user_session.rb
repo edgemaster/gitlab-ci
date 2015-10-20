@@ -22,6 +22,6 @@ class UserSession
   def user_permitted(user)
     groups = Network.new.groups({'private_token' => user['private_token']})
     groups.map! {|g| g['id'] }
-    return !(groups & Settings.users.allow_login_only_from_groups).empty?
+    return !(groups & Settings.gitlab_ci.users.allow_login_only_from_groups).empty?
   end
 end
